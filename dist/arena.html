@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arena | AlgoRace Simulator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" crossorigin src="/assets/arena-DkZGmKFF.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-B-QfjxpY.css">
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  
+  <header id="top-header">
+    <div class="logo">
+      <h1 class="font-heading">Algo<span class="gradient-text">Race</span></h1>
+      <p>Visual Algorithm Simulator</p>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="arena.html" class="nav-link active">Arena</a>
+      <a href="learn.html" class="nav-link">Learn</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+    <div class="header-actions">
+      <button id="btn-sound" class="btn btn-icon" title="Toggle Sound">🔊</button>
+      <button id="btn-quiz" class="btn btn-outline">🧠 Quiz Me</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="arena" class="arena-section">
+      <div class="section-intro">
+        <h2 class="section-title font-heading">The <span class="gradient-text">Grand Prix</span></h2>
+        <p class="section-sub">Configure every variable, then let algorithms race to the finish line.</p>
+      </div>
+
+      <!-- CONTROL PANEL -->
+      <div class="control-panel glass-card">
+        <div class="control-row">
+          <div class="control-group">
+            <label class="control-label">Race Mode</label>
+            <div class="select-wrapper">
+              <select id="race-type">
+                <option value="sorting">🔢 Sorting Race</option>
+                <option value="searching">🔍 Searching Race</option>
+                <option value="graphs">🕸️ Graph Traversal</option>
+                <option value="pathfinding">🗺️ Pathfinding</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="control-group" id="group-dataset-type">
+            <label class="control-label">Dataset Type</label>
+            <div class="select-wrapper">
+              <select id="dataset-type">
+                <option value="random">🎲 Random</option>
+                <option value="nearly-sorted">📈 Nearly Sorted</option>
+                <option value="reversed">📉 Reversed</option>
+                <option value="duplicates">♊ Many Duplicates</option>
+                <option value="custom">✏️ Custom Input</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="control-group" id="group-size">
+            <label class="control-label">Dataset Size <span id="size-display" class="badge-val">50</span></label>
+            <input type="range" id="size-slider" min="10" max="200" value="50" class="range-input" />
+          </div>
+
+          <div class="control-group hidden" id="group-nodes">
+            <label class="control-label">Nodes <span id="nodes-display" class="badge-val">15</span></label>
+            <input type="range" id="nodes-slider" min="6" max="30" value="15" class="range-input" />
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Speed <span id="speed-display" class="badge-val">50</span></label>
+            <input type="range" id="speed-slider" min="1" max="100" value="50" class="range-input" />
+          </div>
+        </div>
+
+        <div id="custom-input-row" class="custom-input-row hidden">
+          <label class="control-label">Custom Array (comma-separated)</label>
+          <div class="custom-input-wrap">
+            <input type="text" id="custom-array-input" class="text-input" placeholder="e.g. 42, 7, 19, 85, 3" />
+            <button id="btn-apply-custom" class="btn btn-outline btn-sm">Apply</button>
+          </div>
+        </div>
+
+        <div id="algo-picker" class="algo-picker">
+          <label class="control-label">Select Algorithms</label>
+          <div class="algo-checkbox-grid" id="algo-checkbox-grid"></div>
+        </div>
+
+        <div class="action-row">
+          <button id="btn-generate" class="btn btn-outline">🔄 Regenerate</button>
+          <button id="btn-start" class="btn btn-primary">▶ Start Race</button>
+          <button id="btn-pause" class="btn btn-outline" disabled>⏸ Pause</button>
+          <button id="btn-reset" class="btn btn-outline">↺ Reset</button>
+          <button id="btn-step" class="btn btn-outline" disabled>→ Step</button>
+          <button id="btn-export" class="btn btn-outline">📥 Export</button>
+        </div>
+      </div>
+
+      <div id="arena-grid" class="arena-grid"></div>
+    </section>
+
+    <section id="analytics" class="analytics-section">
+      <div class="analytics-grid">
+        <div class="glass-card analytics-chart-card">
+          <div class="card-header">
+            <h3 class="font-heading">Operations vs Steps</h3>
+            <div class="chart-toggle">
+              <button class="btn btn-sm btn-outline active" id="chart-line-btn">Line</button>
+              <button class="btn btn-sm btn-outline" id="chart-bar-btn">Bar</button>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="complexity-chart"></canvas>
+          </div>
+        </div>
+        <div class="glass-card insights-card">
+          <h3 class="font-heading">🧠 Insights</h3>
+          <div id="insight-text" class="insight-body">Start a race to see insights.</div>
+          <div id="complexity-table" class="complexity-table hidden">
+            <table>
+              <thead><tr><th>Algorithm</th><th>Ops</th><th>Time</th></tr></thead>
+              <tbody id="complexity-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="glass-card live-stats-card">
+          <h3 class="font-heading">📊 Live Stats</h3>
+          <div id="live-stats-container" class="live-stats"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Overlays -->
+  <div id="quiz-overlay" class="overlay">
+    <div class="modal glass-card">
+      <div class="modal-header">
+        <h2 class="font-heading gradient-text">Predict the Victor</h2>
+        <button class="btn-close" onclick="document.getElementById('quiz-overlay').classList.remove('active')">✕</button>
+      </div>
+      <div id="quiz-options" class="quiz-grid"></div>
+    </div>
+  </div>
+
+  <div id="leaderboard-overlay" class="overlay">
+    <div class="modal glass-card">
+      <div class="modal-header">
+        <h2 class="font-heading">🏆 Results</h2>
+        <button class="btn-close" onclick="document.getElementById('leaderboard-overlay').classList.remove('active')">✕</button>
+      </div>
+      <div id="quiz-result-banner" class="quiz-result hidden"></div>
+      <div id="leaderboard-content" class="leaderboard-list"></div>
+    </div>
+  </div>
+
+</body>
+</html>

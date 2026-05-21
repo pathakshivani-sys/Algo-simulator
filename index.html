@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlgoRace | Visual Algorithm Simulator</title>
+  <meta name="description" content="Watch sorting, searching, and graph algorithms race live. Interactive visualizer for CS402 algorithms." />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+
+  <header id="top-header">
+    <div class="logo">
+      <h1 class="font-heading">Algo<span class="gradient-text">Race</span></h1>
+      <p>Visual Algorithm Simulator</p>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html"  class="nav-link active">Home</a>
+      <a href="arena.html"  class="nav-link">Arena</a>
+      <a href="learn.html"  class="nav-link">Learn</a>
+      <a href="about.html"  class="nav-link">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ── HERO ── -->
+    <section id="hero" class="hero">
+      <div class="hero-text">
+        <div class="hero-badge">CS402 Algorithms · RGPV B.Tech CSE Sem IV</div>
+        <h2 class="font-heading">Master Logic Through <span class="gradient-text">Competition</span></h2>
+        <p>Watch algorithms race on identical datasets in real-time. Tune every variable, predict winners, and develop algorithmic intuition no textbook can give you.</p>
+        <div class="hero-btns">
+          <a href="arena.html" class="btn btn-primary pulse-btn">⚡ Enter the Arena</a>
+          <a href="learn.html" class="btn btn-ghost">📚 Explore Galaxy</a>
+        </div>
+        <div class="hero-tip">💡 Click anywhere on the page to create a particle burst!</div>
+      </div>
+      <div class="hero-visual">
+        <div class="demo-bars" id="demo-bars">
+          <div class="demo-bar" style="--h:35%;--c:#06b6d4;--d:0s"></div>
+          <div class="demo-bar" style="--h:70%;--c:#8b5cf6;--d:0.1s"></div>
+          <div class="demo-bar" style="--h:55%;--c:#fbbf24;--d:0.2s"></div>
+          <div class="demo-bar" style="--h:90%;--c:#10b981;--d:0.3s"></div>
+          <div class="demo-bar" style="--h:45%;--c:#ef4444;--d:0.4s"></div>
+          <div class="demo-bar" style="--h:80%;--c:#06b6d4;--d:0.5s"></div>
+          <div class="demo-bar" style="--h:25%;--c:#fbbf24;--d:0.7s"></div>
+        </div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat-card"><span class="hsc-num">15+</span><span class="hsc-label">Algorithms</span></div>
+          <div class="hero-stat-card"><span class="hsc-num">4</span><span class="hsc-label">Race Modes</span></div>
+          <div class="hero-stat-card"><span class="hsc-num">∞</span><span class="hsc-label">Datasets</span></div>
+          <div class="hero-stat-card"><span class="hsc-num">Live</span><span class="hsc-label">Insights</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURE CARDS ── -->
+    <section id="features" class="features-section">
+      <div class="section-intro">
+        <h2 class="section-title font-heading">Where Do You Want <span class="gradient-text">To Go?</span></h2>
+        <p class="section-sub">Pick your destination — race algorithms, learn the theory, or explore the code.</p>
+      </div>
+      <div class="feature-grid">
+        <a href="arena.html" class="feature-card fc-arena">
+          <div class="fc-icon">🏁</div>
+          <h3 class="font-heading">The Arena</h3>
+          <p>Configure races, set custom datasets, and watch algorithms compete side-by-side with live analytics.</p>
+          <span class="fc-cta">Enter Arena →</span>
+        </a>
+        <a href="learn.html" class="feature-card fc-learn">
+          <div class="fc-icon">🧠</div>
+          <h3 class="font-heading">Learn</h3>
+          <p>Deep-dive into every algorithm with complexity tables, pseudocode, full source code, and mini-simulations.</p>
+          <span class="fc-cta">Start Learning →</span>
+        </a>
+        <a href="learn.html#searching" class="feature-card fc-search">
+          <div class="fc-icon">🔍</div>
+          <h3 class="font-heading">Searching</h3>
+          <p>Visualise Linear, Binary, Jump, and Interpolation search step-by-step on your own array.</p>
+          <span class="fc-cta">Explore Search →</span>
+        </a>
+        <a href="learn.html#graphs" class="feature-card fc-graph">
+          <div class="fc-icon">🕸️</div>
+          <h3 class="font-heading">Graphs</h3>
+          <p>BFS, DFS, Dijkstra, Bellman-Ford, A*, Floyd-Warshall — all visually traced on live node graphs.</p>
+          <span class="fc-cta">Graph Theory →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section id="how" class="how-section">
+      <div class="section-intro">
+        <h2 class="section-title font-heading">How It <span class="gradient-text">Works</span></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">01</div><h4>Pick Algorithms</h4><p>Select 2–6 algorithms from the sorting, searching, or graph category.</p></div>
+        <div class="step-card"><div class="step-num">02</div><h4>Configure Data</h4><p>Choose a preset dataset (random, reversed, nearly sorted) or type your own values.</p></div>
+        <div class="step-card"><div class="step-num">03</div><h4>Race!</h4><p>Hit Start and watch algorithms compete. Pause, step through, or crank the speed.</p></div>
+        <div class="step-card"><div class="step-num">04</div><h4>Analyse</h4><p>Review the leaderboard, ops count, time, and the live complexity graph to build intuition.</p></div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT (bottom of home) ── -->
+    <section id="about-home" class="about-home-section">
+      <div class="about-home-inner glass-card">
+        <div class="about-home-text">
+          <h2 class="section-title font-heading">About <span class="gradient-text">AlgoRace</span></h2>
+          <p>Built as the core instructional tool for <strong>CS402 Algorithms</strong> at RGPV B.Tech CSE Semester IV. AlgoRace bridges the gap between abstract Big-O notation and real-world performance through live, side-by-side competition.</p>
+          <p>Every algorithm is implemented as an ES6 Generator so it can be paused, resumed, and stepped through one operation at a time — giving you the granular insight you need.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">HTML5 Canvas</span>
+            <span class="tech-tag">Web Audio API</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">ES6 Generators</span>
+          </div>
+        </div>
+        <div class="about-home-cta">
+          <a href="arena.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:.75rem">⚡ Jump to Arena</a>
+          <a href="learn.html" class="btn btn-outline" style="width:100%;justify-content:center">📖 Open Learn Guide</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <h3 class="font-heading">Algo<span class="gradient-text">Race</span></h3>
+        <p>Visual Algorithm Race Simulator</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="arena.html">Arena</a>
+        <a href="learn.html">Learn</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 AlgoRace — RGPV CSE IV Educational Project</div>
+  </footer>
+
+  <script type="module">
+    import { initParticles } from './src/particles.js';
+    window.addEventListener('DOMContentLoaded', () => initParticles('particles'));
+  </script>
+</body>
+</html>
